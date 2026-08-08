@@ -1,0 +1,39 @@
+# Environment variables — never commit real secrets
+**/.env
+backend/.env
+
+# SQLite database files
+*.db
+*.db-wal
+*.db-shm
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node dependencies
+node_modules/
+
+# Application logs
+backend/*.log
+backend/*.txt
+!backend/requirements.txt
+# Data backups and live state
+data/*
+!data/.gitkeep
+# Frontend lint reports
+frontend/eslint_output.txt
+frontend/eslint_report.txt
+frontend/eslint_ws.txt
+
+# Build output
+frontend/dist/
+frontend/.vite/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp

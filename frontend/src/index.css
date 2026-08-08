@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-shake: shake 0.5s ease-in-out;
+  --animate-fade-in: fade-in 0.15s ease-out;
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-8px); }
+    40%       { transform: translateX(8px); }
+    60%       { transform: translateX(-5px); }
+    80%       { transform: translateX(5px); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Prevent double-tap zoom on touch devices */
+* {
+  touch-action: manipulation;
+}
+
+/* Smooth scrolling for overflow areas */
+.overflow-auto, .overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #374151 transparent;
+}
+
+/* ── Compact dashboard layout tokens (15" laptop baseline) ─────────────────
+   FloorGrid reads these via var() — change here, not in components.         */
+:root {
+  --cell-w:   100px;
+  --cell-h:   58px;
+  --cell-gap: 3px;
+}
+
+/* ── Hybrid: upsize on FHD+ monitors ───────────────────────────────────────
+   min-height guard prevents triggering on wide-but-short ultrawide screens. */
+@media (min-width: 1920px) and (min-height: 1060px) {
+  :root {
+    --cell-w:   130px;
+    --cell-h:   74px;
+    --cell-gap: 5px;
+  }
+}
